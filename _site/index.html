@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <title>Monitor</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <h1>
+    Monitor
+    <script type="text/x-handlebars">
+      <small>|
+        {{App.Controllers.readings.content.length}} readings recorded.
+      </small>
+    </script>
+  </h1>
+
+  <script type="text/x-handlebars">
+  <ul id="readings">
+    {{#each App.Controllers.readings.content}}
+
+      <li {{bindAttr class=":task completed"}}>
+        <label>{{hostname}}</label>
+      </li>
+
+    {{/each}}
+  </ul>
+  </script>
+
+  <script src="lib/jquery-1.7.2.js"></script>
+  <script src="lib/handlebars-1.0.0.beta.6.js"></script>
+  <script src="lib/ember-1.0.0-pre.js"></script>
+  <script src="lib/ember-data.js"></script>
+
+  <script src="lib/adapters/elasticsearch_adapter.js"></script>
+
+  <script src="app.js"></script>
+</body>
+</html>
